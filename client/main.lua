@@ -45,7 +45,7 @@ Times = {
 }
 
 
-RegisterCommand("testw", function()
+RegisterCommand("OpenWT", function()
     display = not display 
     open(display)
 end, false)
