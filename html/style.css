@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css?family=Ubuntu&display=swap');
+
+.container {
+    background-size: cover;
+    width: 40vw;
+    height: 15vh;
+    position: absolute;
+    right: 0%;
+    color: #fff;
+    font-family: 'Ubuntu';
+    overflow: hidden;
+    margin-top: 0.5vh;
+    margin-right: 0.5vh;
+    background-color: grey;
+    border-radius: 4px;
+}
+
+body {
+    overflow: hidden; /* Hide scrollbars */
+}
