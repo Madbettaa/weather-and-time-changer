@@ -1,6 +1,6 @@
 resource_manifest_version '44febabe-d386-4d18-afbe-5e627f4af937'
 
-ui_page 'html/laptop.html'
+ui_page 'html/index.html'
 
 client_scripts {
     'client/main.lua',
@@ -11,9 +11,12 @@ server_scripts {
 }
 
 files {
-    'html/laptop.html',
+    'html/index.html',
     'html/style.css',
     'html/reset.css',
     'html/ui.js',
-    'html/browse.js',
+}
+
+shared_scripts {
+    'shared/shared.lua'
 }

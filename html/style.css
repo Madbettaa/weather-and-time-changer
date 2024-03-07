@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css?family=Ubuntu&display=swap');
-
 .container {
     background-size: cover;
     width: 40vw;
@@ -9,12 +7,117 @@
     color: #fff;
     font-family: 'Ubuntu';
     overflow: hidden;
-    margin-top: 0.5vh;
-    margin-right: 0.5vh;
-    background-color: grey;
-    border-radius: 4px;
+    margin-top: 2vh;
+    margin-right: 1.5vh;
+    border-radius: 20px;
+    background: rgba(13, 196, 159, 0.1);
+    box-shadow: -2px 2px 10px 18px rgba(13, 196, 159, 0.1);
 }
 
-body {
-    overflow: hidden; /* Hide scrollbars */
+.currTime {
+    position: relative;
+    display: flex;
+    margin-left: 2vh;
+}
+
+#time {
+    position: relative;
+    font-family: 'Ubuntu';
+    font-size: large;
+    margin-left: 1vh;
+    top: 2px;
+}
+
+.WTchange {
+    position: relative;
+    display: flex;
+    flex-direction: row; /* Display elements in a row */
+    justify-content: space-between; /* Spread elements across the container */
+    align-items: flex-start; /* Align items to the start */
+    margin-left: 2vh;
+    width: 100%; /* Full width */
+}
+
+.WTchange div {
+    width: 48%; /* Adjusted width for label and select container */
+}
+
+.WTchange label {
+    margin-bottom: 5px;
+}
+
+.WTchange select {
+    width: 100%; /* Adjusted width for select elements */
+    font-size: 18px;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: rgba(13, 196, 159, 0.1);
+    box-shadow: -2px 2px 10px 18px rgba(13, 196, 159, 0.1);
+    margin-bottom: 10px;
+}
+
+#ChooseWeather:focus,
+#ChooseTime:focus {
+    outline: none;
+}
+
+#ChooseTime__list {
+    position: absolute;
+    width: calc(100% - 2px);
+    max-height: 150px;
+    overflow-y: auto;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1); /* Adjusted box shadow */
+    z-index: 1000;
+    display: none;
+}
+
+#ChooseTime__option {
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s; /* Smooth transition for background color */
+    color: #000; /* Set text color to black */
+}
+
+#ChooseTime__option:hover,
+#ChooseTime__option:focus {
+    background-color: #f0f0f0; /* Hover effect background color */
+}
+
+#ChooseTime:focus + #ChooseTime__list {
+    display: block;
+}
+
+#ChooseTime__current {
+    position: relative;
+}
+
+#ChooseTime__icon {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    color: #ffffff;
+}
+
+#CChanges {
+    font-size: 18px;
+    color: #fff;
+    background-color: transparent; /* Transparent background */
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    position: absolute;
+    top: 65px; /* Adjust bottom spacing */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1; /* Ensure button appears above background */
+}
+
+#CChanges:hover {
+    background-color: rgba(13, 196, 159, 0.5); 
 }
