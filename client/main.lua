@@ -1,20 +1,21 @@
 local display = true
 
 Weathers = {
-    "EXTRASUNNY" ,
-    "CLEAR" ,
-    "CLEARING" ,
-    "OVERCAST" ,
-    "SMOG" ,
-    "FOGGY" ,
-    "CLOUDS" ,
-    "RAIN" ,
-    "THUNDER" ,
-    "SNOW" ,
-    "BLIZZARD" ,
-    "SNOWLIGHT" ,
-    "XMAS" ,
-    "HALLOWEEN" ,
+    "EXTRASUNNY",
+    "CLEAR",
+    "CLEARING",
+    "OVERCAST",
+    "SMOG",
+    "FOGGY",
+    "CLOUDS",
+    "RAIN",
+    "THUNDER",
+    "SNOW",
+    "BLIZZARD",
+    "SNOWLIGHT",
+    "XMAS",
+    "HALLOWEEN",
+    "NEUTRAL",
 }
 
 Times = {
