@@ -1,46 +1,46 @@
 $(function () {
-    $(".container").hide();
+    const container = $(".container");
+
+    container.hide();
+
     function display(bool) {
         if (bool) {
-            $(".container").fadeIn(1000);
+            container.fadeIn(1000);
             $(".system-actions").hide();
         } else {
-            $(".container").fadeOut(500);
+            container.fadeOut(500);
         }
     }
 
-    display(false)
+    display(false);
 
-    window.addEventListener('message', function(event) {
+    window.addEventListener('message', function (event) {
         if (event.data.type === "ui") {
-            if (event.data.status == true) {
-                display(true)
-            } else {
-                display(false)
-            }
-            
+            display(event.data.status);
 
-            var selectElement = document.getElementById("ChooseWeather");
-            selectElement.innerHTML = "";
-                event.data.weathers.forEach(function(weather) {
-                    var option = document.createElement("option");
-                    option.text = weather;
-                    selectElement.appendChild(option);
-                });
-            var selectElement = document.getElementById("ChooseTime");
-            selectElement.innerHTML = "";
-                event.data.times.forEach(function(time) {
-                        var option = document.createElement("option");
-                        option.text = time;
-                        selectElement.appendChild(option);
+            document.onkeyup = function (data) {
+                if (data.which === 27) {
+                    emitNui("closeUi");
+                }
+            };
+
+            const chooseWeatherElement = $("#ChooseWeather");
+            const chooseTimeElement = $("#ChooseTime");
+
+            chooseWeatherElement.empty();
+            chooseTimeElement.empty();
+
+            event.data.weathers.forEach(function (weather) {
+                chooseWeatherElement.append($("<option>", { text: weather }));
             });
-      }})
 
-    window.addEventListener('message', function(event) {
-        if (event.data.type === "main") {
+            event.data.times.forEach(function (time) {
+                chooseTimeElement.append($("<option>", { text: time }));
+            });
+        } else if (event.data.type === "main") {
             $('#time').text(event.data.time);
         }
-    })
+    });
 
     async function emitNui(event, data = {}) {
         const url = `https://${GetParentResourceName()}/${event}`;
@@ -55,17 +55,17 @@ $(function () {
             const responseData = await res.json();
             return responseData;
         } catch (error) {
-            console.error(error);
+            console.error("Error:", error);
         }
     }
 
-    $('#CChanges').on('click', function() {
-        var selectedWeather = document.getElementById("ChooseWeather").value;
-        var selectedTime = document.getElementById("ChooseTime").value;
+    $('#CChanges').on('click', function () {
+        const selectedWeather = $("#ChooseWeather").val();
+        const selectedTime = $("#ChooseTime").val();
+
         console.log("Selected Weather:", selectedWeather);
         console.log("Selected Time:", selectedTime);
+
         emitNui("setWeatherAndTime", { weather: selectedWeather, time: selectedTime });
     });
-    
-
 });
